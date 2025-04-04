@@ -61,6 +61,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if player_is_using_mouse:
 		_camera_input_direction.x = -event.relative.x * mouse_sensitivity
 		_camera_input_direction.y = -event.relative.y * mouse_sensitivity
+	# Capture right stick movement for camera control
+	var right_stick_x = Input.get_joy_axis(0, JOY_AXIS_RIGHT_X)  # Right stick horizontal
+	var right_stick_y = Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)  # Right stick vertical
+
+	# Apply dead zone to avoid jitter when the stick is near center
+	if abs(right_stick_x) > 0.1 or abs(right_stick_y) > 0.1:
+		_camera_input_direction.x = -right_stick_x * mouse_sensitivity * 10  # Scale input
+		_camera_input_direction.y = -right_stick_y * mouse_sensitivity * 10
 
 
 func _physics_process(delta: float) -> void:
