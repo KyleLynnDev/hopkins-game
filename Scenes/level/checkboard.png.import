@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbng0n5o416sg"
-path.s3tc="res://.godot/imported/cactus_body_albedo.webp-39d76c463b156d9849492fbbf27ad0d1.s3tc.ctex"
+uid="uid://brbtohct73mlt"
+path="res://.godot/imported/checkboard.png-2ee938c3b17c23d130e2e806d1565674.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/cactus/materials/cactus_body_albedo.webp"
-dest_files=["res://.godot/imported/cactus_body_albedo.webp-39d76c463b156d9849492fbbf27ad0d1.s3tc.ctex"]
+source_file="res://Scenes/level/checkboard.png"
+dest_files=["res://.godot/imported/checkboard.png-2ee938c3b17c23d130e2e806d1565674.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
