@@ -54,6 +54,9 @@ var first_person_enabled := false
 var _stored_skin_rotation_y := 0.0
 var _stored_body_rotation_y := 0.0
 
+var can_toggle_camera := true
+var toggle_cooldown := 0.2  # seconds
+
 
 func _ready() -> void:
 	pass
@@ -61,9 +64,13 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("cam_toggle"):
+	if Input.is_action_just_pressed("cam_toggle") and can_toggle_camera:
 		first_person_enabled = !first_person_enabled
 		update_camera_mode()
+		can_toggle_camera = false
+		# Start cooldown timer
+		await get_tree().create_timer(toggle_cooldown).timeout
+		can_toggle_camera = true
 	
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -171,8 +178,8 @@ func _physics_process(delta: float) -> void:
 	_was_on_floor_last_frame = is_on_floor()
 	
 	
-	print("Body forward:", -global_transform.basis.z)
-	print("Skin forward:", -_skin.global_transform.basis.z)
+	#print("Body forward:", -global_transform.basis.z)
+	#print("Skin forward:", -_skin.global_transform.basis.z)
 		
 	move_and_slide()
 	
@@ -184,18 +191,31 @@ func update_camera_mode():
 	_skin.visible = !first_person_enabled
 
 	if not first_person_enabled:
-	# Reset the player body's Y rotation to 0 so it doesn't affect the mesh
+		
+		_camera_pivot.rotation.y = rotation.y
+		_camera_pivot.rotation.x = _camera_first_person.rotation.x
+		
+		# Reset the player body's Y rotation to 0 so it doesn't affect the mesh
 		var yaw = rotation.y
 		rotation.y = 0.0
-
-	# Apply the same world-facing direction to the mesh
+		# Apply the same world-facing direction to the mesh
 		_skin.rotation.y = yaw
 
 	# Reset movement direction for smooth transition
 		var forward = Vector3(sin(yaw), 0, cos(yaw)).normalized()
 		_last_input_direction = forward
-#
-		## Optionally reset input direction to forward-facing
-		#_last_input_direction = -global_transform.basis.z.normalized()
+		
+		
+
+	if first_person_enabled:
+	# Get third-person look angles
+		var yaw = _camera_pivot.rotation.y
+		var pitch = _camera_pivot.rotation.x
+
+	# Apply them to body and first-person camera
+		rotation.y = yaw  # rotate the body
+		_camera_first_person.rotation.x = pitch
+
+
 	# TODO: adjust input settings, like mouse sensitivity
 	
