@@ -11,12 +11,16 @@ config_version=5
 [application]
 
 config/name="Hopkins Game"
+run/main_scene="uid://eneduqhugta2"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Global="*res://autoload/Global.gd"
+Ui="*res://ui/UI.tscn"
+GameData="*res://autoload/GameData.gd"
 
 [dialogic]
 

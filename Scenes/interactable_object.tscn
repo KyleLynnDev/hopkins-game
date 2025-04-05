@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpt7qhsxretj4"]
+
+[ext_resource type="Script" uid="uid://br0pe7barvfmq" path="res://scripts/interactable.gd" id="1_pj2rk"]
+[ext_resource type="Texture2D" uid="uid://ci03wfflautxe" path="res://icon.svg" id="2_a51nr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pj2rk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5hfko"]
+radius = 4.0
+
+[node name="InteractableObject" type="StaticBody3D"]
+script = ExtResource("1_pj2rk")
+
+[node name="PreciseCollider" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_pj2rk")
+
+[node name="Visual" type="Sprite3D" parent="."]
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_a51nr")
+
+[node name="Proximity" type="Area3D" parent="."]
+
+[node name="RaycastCollider" type="CollisionShape3D" parent="Proximity"]
+shape = SubResource("SphereShape3D_5hfko")

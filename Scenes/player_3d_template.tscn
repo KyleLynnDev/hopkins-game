@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1ot6gn6tms6h"]
+[gd_scene load_steps=13 format=3 uid="uid://b1ot6gn6tms6h"]
 
 [ext_resource type="Script" uid="uid://wa3x0bl4msop" path="res://scripts/player_3d_template.gd" id="1_dpokc"]
 [ext_resource type="PackedScene" uid="uid://prh35jb6tjtd" path="res://player/sophia_skin/sophia_skin.tscn" id="2_4dj54"]
@@ -46,6 +46,9 @@ rings = 8
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_h1hkf"]
 length = 0.5
 slide_on_slope = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qagb2"]
+radius = 0.75
 
 [node name="Player3DTemplate" type="CharacterBody3D"]
 axis_lock_angular_x = true
@@ -99,4 +102,18 @@ fov = 50.0
 
 [node name="FirstPersonCam" type="Camera3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.19755, 0.461958)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.19755, 0.0694992)
+
+[node name="FirstPersonRayCast3D" type="RayCast3D" parent="FirstPersonCam"]
+unique_name_in_owner = true
+transform = Transform3D(1, 8.74228e-08, -8.74228e-08, -8.74228e-08, -4.37114e-08, -1, -8.74228e-08, 1, -4.37114e-08, 4.93232e-09, 0, 0.0564191)
+target_position = Vector3(0, -10, 0)
+
+[node name="InteractionDetector" type="Area3D" parent="."]
+
+[node name="ProximityCollider" type="CollisionShape3D" parent="InteractionDetector"]
+transform = Transform3D(3.21574, 0, 0, 0, 2.1607, 0, 0, 0, 3.20852, 0, 0.850866, 0)
+shape = SubResource("SphereShape3D_qagb2")
+
+[connection signal="body_entered" from="InteractionDetector" to="." method="_on_interaction_detector_body_entered"]
+[connection signal="body_exited" from="InteractionDetector" to="." method="_on_interaction_detector_body_exited"]
