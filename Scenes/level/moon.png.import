@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcclp0ve2csgp"
-path.s3tc="res://.godot/imported/cactus_body_roughness.webp-1f071c51a0b14706276f50bd5d32ab89.s3tc.ctex"
+uid="uid://ca3jtautvrj1u"
+path.s3tc="res://.godot/imported/moon.png-be7ab83c31c0501db7db5bb4e413ee75.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://level/cactus/materials/cactus_body_roughness.webp"
-dest_files=["res://.godot/imported/cactus_body_roughness.webp-1f071c51a0b14706276f50bd5d32ab89.s3tc.ctex"]
+source_file="res://Scenes/level/moon.png"
+dest_files=["res://.godot/imported/moon.png-be7ab83c31c0501db7db5bb4e413ee75.s3tc.ctex"]
 
 [params]
 

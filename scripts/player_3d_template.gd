@@ -35,8 +35,8 @@ var _was_on_floor_last_frame := true
 var _third_person_input_direction := Vector2.ZERO
 var _first_person_input_direction := Vector2.ZERO
 
-
 var first_person_enabled := false
+
 
 ## The last movement or aim direction input by the player. We use this to orient
 ## the character model.
@@ -51,6 +51,8 @@ var first_person_enabled := false
 @onready var _jump_sound: AudioStreamPlayer3D = %JumpSound
 @onready var _dust_particles: GPUParticles3D = %DustParticles
 
+#Switching Camera perspective variables
+
 var _stored_skin_rotation_y := 0.0
 var _stored_body_rotation_y := 0.0
 
@@ -58,7 +60,20 @@ var can_toggle_camera := true
 var toggle_cooldown := 0.2  # seconds
 
 
+#interaction variables
+
+var _hovered_interactable: Node = null
+var _nearby_interactables: Array[Node] = []
+var _raycast_target: Node = null
+var _nearby_target: Node = null
+
+@onready var _raycast = %FirstPersonRayCast3D  # or dynamic camera
+@onready var _interact_prompt = Ui.interaction 
+
+
 func _ready() -> void:
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#print("Mouse mode:", Input.get_mouse_mode())
 	pass
 
 
@@ -77,13 +92,17 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("left_click"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-
+	#if event is InputEventMouseMotion:
+		#print("Mouse motion:", event.relative)
 
 func _unhandled_input(event: InputEvent) -> void:
 	
 	var player_is_using_mouse := (
 		event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
 	)
+
+	#print(Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED)
+	#print(player_is_using_mouse)
 	if player_is_using_mouse:
 		if first_person_enabled:
 			_first_person_input_direction.x = -event.relative.x * mouse_sensitivity
@@ -115,6 +134,9 @@ func _physics_process(delta: float) -> void:
 	#Smoothly rotate skin if in third person
 	#Move the character
 	#Character animations and visuals 
+	
+	handleCollisions(delta)
+	#print(_hovered_interactable)
 	
 	#Handle camera input
 	if first_person_enabled:
@@ -219,3 +241,73 @@ func update_camera_mode():
 
 	# TODO: adjust input settings, like mouse sensitivity
 	
+	
+func handleCollisions(delta):
+	# Raycast update
+	_raycast.force_raycast_update()
+	if _raycast.is_colliding():
+		var hit = _raycast.get_collider()
+		if hit and hit.has_method("interact"):
+			_raycast_target = hit
+		else:
+			_raycast_target = null
+	else:
+		_raycast_target = null
+
+	# Decide which target to use based on camera mode
+	if first_person_enabled:
+		_hovered_interactable = _raycast_target
+	else:
+		_hovered_interactable = _nearby_target
+	 # prioritize raycast if available
+		
+	if _hovered_interactable:
+		Ui.show_interact_prompt("Press E to examine " + _hovered_interactable.interact_name)
+		if Input.is_action_just_pressed("Interaction"):
+			_hovered_interactable.interact()
+	else:
+		Ui.hide_interact_prompt()
+		
+		#if _nearby_interactables.size() > 0:
+			#_hovered_interactable = _nearby_interactables[0]
+			#var closest_dist = global_position.distance_to(_hovered_interactable.global_position)
+			#for obj in _nearby_interactables:
+				#var d = global_position.distance_to(obj.global_position)
+				#if d < closest_dist:
+					#_hovered_interactable = obj
+					#closest_dist = d 
+		#else:
+			#_hovered_interactable = null; 
+	##print(_interact_prompt)
+		#
+		#if _hovered_interactable:
+			#Ui.show_interact_prompt("Press E to examine " + _hovered_interactable.interact_name)
+		#else:
+			#Ui.hide_interact_prompt()
+		#
+		#if _hovered_interactable and Input.is_action_just_pressed("Interaction"):
+			#_hovered_interactable.interact()
+
+
+#func _on_interaction_detector_body_entered(body: Node3D) -> void:
+	#if body.has_method("interact"):
+		#_nearby_interactables.append(body)
+#
+#
+#
+#func _on_interaction_detector_body_exited(body: Node3D) -> void:
+	#_nearby_interactables.erase(body)
+	#
+	
+	
+
+
+
+func _on_interaction_detector_body_entered(body: Node3D) -> void:
+	if body.has_method("interact"):
+		_nearby_target = body
+
+
+func _on_interaction_detector_body_exited(body: Node3D) -> void:
+	if _nearby_target == body:
+		_nearby_target = null
