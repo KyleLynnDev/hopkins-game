@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b1ot6gn6tms6h"]
 
-[ext_resource type="Script" uid="uid://wa3x0bl4msop" path="res://lesson_reference/player_3d_template.gd" id="1_dpokc"]
+[ext_resource type="Script" uid="uid://wa3x0bl4msop" path="res://scripts/player_3d_template.gd" id="1_dpokc"]
 [ext_resource type="PackedScene" uid="uid://prh35jb6tjtd" path="res://player/sophia_skin/sophia_skin.tscn" id="2_4dj54"]
 [ext_resource type="AudioStream" uid="uid://bhoyegbjust84" path="res://player/sounds/robot_land.wav" id="3_kbqxf"]
 [ext_resource type="AudioStream" uid="uid://b4x0f4pgfifoo" path="res://player/sounds/robot_jump.wav" id="4_1v0dq"]
@@ -91,8 +91,12 @@ transform = Transform3D(-1, 2.1052e-08, -1.40279e-07, -3.23484e-08, 0.929023, 0.
 shape = SubResource("SeparationRayShape3D_h1hkf")
 spring_length = 8.0
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
+[node name="ThirdPersonCam" type="Camera3D" parent="CameraPivot/SpringArm3D"]
 unique_name_in_owner = true
 transform = Transform3D(1, 3.19744e-14, 2.13163e-14, 0, 1, 0, 0, 0, 1, -2.4869e-14, 2.38419e-07, 10)
 current = true
 fov = 50.0
+
+[node name="FirstPersonCam" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.19755, 0.461958)
