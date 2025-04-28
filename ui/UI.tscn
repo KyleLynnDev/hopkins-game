@@ -28,7 +28,6 @@ offset_bottom = 40.0
 
 [node name="ObservationPanel" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,6 +37,7 @@ grow_vertical = 2
 focus_mode = 2
 
 [node name="Panel" type="Panel" parent="ObservationPanel"]
+custom_minimum_size = Vector2(400, 300)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -50,24 +50,28 @@ focus_mode = 2
 
 [node name="ObjectImage" type="TextureRect" parent="ObservationPanel/Panel"]
 layout_mode = 0
-offset_left = -87.0
-offset_top = -41.0
-offset_right = -47.0
-offset_bottom = -1.0
+offset_left = 34.0
+offset_top = 34.0
+offset_right = 74.0
+offset_bottom = 74.0
 
 [node name="ObjectName" type="Label" parent="ObservationPanel/Panel"]
 layout_mode = 0
-offset_left = 25.0
-offset_top = -43.0
-offset_right = 65.0
-offset_bottom = -20.0
+offset_left = 199.0
+offset_top = 32.0
+offset_right = 239.0
+offset_bottom = 55.0
 
 [node name="ObjectDescription" type="RichTextLabel" parent="ObservationPanel/Panel"]
-layout_mode = 0
-offset_left = 40.0
-offset_top = -4.0
-offset_right = 80.0
-offset_bottom = 36.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -19.0
+offset_right = 375.0
+offset_bottom = 121.0
+grow_vertical = 2
 
 [node name="OptionsMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -79,6 +83,7 @@ focus_mode = 2
 
 [node name="CollectionUI" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -112,10 +117,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -56.5
-offset_top = -56.5
-offset_right = 56.5
-offset_bottom = 56.5
+offset_left = -128.0
+offset_top = -163.0
+offset_right = -15.0
+offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -124,9 +129,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 89.0
+offset_bottom = 150.0
 grow_horizontal = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CollectionUI/InfoPanel"]
@@ -135,9 +141,10 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = 173.0
-offset_right = 57.0
+offset_left = -138.0
+offset_top = 118.0
+offset_right = 81.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 

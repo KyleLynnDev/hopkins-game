@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgc7sg6ll8kqd"]
+[gd_scene load_steps=2 format=3 uid="uid://cgc7sg6ll8kqd"]
 
 [ext_resource type="Script" uid="uid://ceyuv8ne6obuo" path="res://ui/collection_item.gd" id="1_vfrd7"]
-[ext_resource type="Texture2D" uid="uid://dju6r6233ca6i" path="res://assets/Critters/Red Starfish.png" id="2_vfrd7"]
 
 [node name="CollectionItem" type="Button"]
 custom_minimum_size = Vector2(66, 66)
@@ -20,7 +19,6 @@ offset_right = 64.0
 offset_bottom = 64.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_vfrd7")
 stretch_mode = 5
 
 [node name="ItemName" type="Label" parent="."]

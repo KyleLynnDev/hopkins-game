@@ -49,7 +49,7 @@ func show_observation(name: String, description : String, image: Texture):
 func show_item_info(name: String, desc: String, image: Texture):
 	$CollectionUI/InfoPanel/TextureRect.texture = image
 	$CollectionUI/InfoPanel/Label.text = name
-	$CollectionUI/InfoPanel/Label.text = desc
+	$CollectionUI/InfoPanel/RichTextLabel.text = desc
 	$CollectionUI/InfoPanel.visible = true
 	
 func close_all_panels():

@@ -91,9 +91,6 @@ material = SubResource("StandardMaterial3D_5gx2l")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vkbyq"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_5hfko"]
-radius = 4.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vt71b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ekk8"]
@@ -113,6 +110,9 @@ subdivide_depth = 4
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8ekk8"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_5hfko"]
+radius = 4.0
+
 [node name="Level" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -124,61 +124,28 @@ light_energy = 0.53
 shadow_enabled = true
 directional_shadow_max_distance = 40.0
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="ground plane" type="StaticBody3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground plane"]
 transform = Transform3D(2.87786, 0, 0, 0, 1.00428, 0, 0, 0, 2.82451, 3.6408, 0, 2.40133)
 visible = false
 mesh = SubResource("PlaneMesh_5gx2l")
 skeleton = NodePath("../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground plane"]
 transform = Transform3D(17.1124, 0, 0, 0, 1.00176, 0, 0, 0, 10.598, 20.6579, 0, 8.32894)
 shape = SubResource("ConcavePolygonShape3D_5gx2l")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+[node name="old ground plane" type="StaticBody3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="old ground plane"]
 transform = Transform3D(4.85304, 0, 0, 0, 4.85304, 0, 0, 0, 4.85304, 0, 1.71779, 11.3447)
 mesh = SubResource("BoxMesh_qohg2")
 skeleton = NodePath("../..")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D2"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="old ground plane"]
 transform = Transform3D(4.85304, 0, 0, 0, 4.85304, 0, 0, 0, 4.85304, 0, 1.71779, 11.3447)
 shape = SubResource("ConcavePolygonShape3D_vkbyq")
-
-[node name="InteractableObject" parent="StaticBody3D2" instance=ExtResource("3_qohg2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.83684, 0.64, -4.96588)
-interact_name = "FISH"
-description = "THIS IS A TEST FISH AHHHHHHH"
-sprite_preview = ExtResource("4_vuhcl")
-
-[node name="Visual" parent="StaticBody3D2/InteractableObject" index="1"]
-texture = ExtResource("5_ko41k")
-
-[node name="InteractableObject2" parent="StaticBody3D2" instance=ExtResource("3_qohg2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8785, 0.64, 2.24699)
-interact_name = "Tuna"
-description = "This is a Tuna"
-sprite_preview = ExtResource("4_vuhcl")
-
-[node name="Visual" parent="StaticBody3D2/InteractableObject2" index="1"]
-texture = ExtResource("4_vuhcl")
-
-[node name="RaycastCollider2" type="CollisionShape3D" parent="StaticBody3D2/InteractableObject2/Proximity" index="1"]
-shape = SubResource("SphereShape3D_5hfko")
-
-[node name="InteractableObject3" parent="StaticBody3D2" instance=ExtResource("3_qohg2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3669, 0.64, 10.6439)
-interact_name = "Salmon"
-description = "This is a salmon"
-sprite_preview = ExtResource("5_m88n2")
-
-[node name="Visual" parent="StaticBody3D2/InteractableObject3" index="1"]
-texture = ExtResource("5_m88n2")
-
-[node name="RaycastCollider2" type="CollisionShape3D" parent="StaticBody3D2/InteractableObject3/Proximity" index="1"]
-shape = SubResource("SphereShape3D_5hfko")
 
 [node name="Water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -8.32743, 0)
@@ -197,6 +164,51 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.3134, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain"]
 shape = SubResource("ConvexPolygonShape3D_8ekk8")
 
-[editable path="StaticBody3D2/InteractableObject"]
-[editable path="StaticBody3D2/InteractableObject2"]
-[editable path="StaticBody3D2/InteractableObject3"]
+[node name="InteractableObjects" type="Node3D" parent="."]
+
+[node name="Test Object" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.83684, 0.64, -4.96588)
+interact_name = "FISH"
+description = "THIS IS A TEST FISH AHHHHHHH"
+sprite_preview = ExtResource("4_vuhcl")
+
+[node name="Visual" parent="InteractableObjects/Test Object" index="1"]
+texture = ExtResource("5_ko41k")
+
+[node name="SeaOtter" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6465, 0.64, -4.96588)
+interact_name = "Sea Otter"
+description = "This is a sea otter this is the amount of characters we get at any given time this may be a lot or may not even show up at all"
+sprite_preview = ExtResource("4_vuhcl")
+
+[node name="Visual" parent="InteractableObjects/SeaOtter" index="1"]
+texture = ExtResource("5_ko41k")
+
+[node name="Tuna" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8785, 0.64, 2.24699)
+interact_name = "Tuna"
+description = "This is a Tuna"
+sprite_preview = ExtResource("4_vuhcl")
+
+[node name="Visual" parent="InteractableObjects/Tuna" index="1"]
+texture = ExtResource("4_vuhcl")
+
+[node name="RaycastCollider2" type="CollisionShape3D" parent="InteractableObjects/Tuna/Proximity" index="1"]
+shape = SubResource("SphereShape3D_5hfko")
+
+[node name="Salmon" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3669, 0.64, 10.6439)
+interact_name = "Salmon"
+description = "This is a salmon"
+sprite_preview = ExtResource("5_m88n2")
+
+[node name="Visual" parent="InteractableObjects/Salmon" index="1"]
+texture = ExtResource("5_m88n2")
+
+[node name="RaycastCollider2" type="CollisionShape3D" parent="InteractableObjects/Salmon/Proximity" index="1"]
+shape = SubResource("SphereShape3D_5hfko")
+
+[editable path="InteractableObjects/Test Object"]
+[editable path="InteractableObjects/SeaOtter"]
+[editable path="InteractableObjects/Tuna"]
+[editable path="InteractableObjects/Salmon"]

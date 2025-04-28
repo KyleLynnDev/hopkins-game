@@ -263,7 +263,8 @@ func update_camera_mode():
 		_camera_first_person.rotation.x = pitch
 		# 🛠 Fix input and mouse capture immediately
 	if first_person_enabled:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
