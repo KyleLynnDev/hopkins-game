@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxb23v0533q3c"]
+[gd_scene load_steps=2 format=3 uid="uid://cxb23v0533q3c"]
 
 [ext_resource type="Script" uid="uid://f7ie3al8udlf" path="res://scripts/ui.gd" id="1_xmm75"]
-[ext_resource type="PackedScene" uid="uid://cgc7sg6ll8kqd" path="res://ui/CollectionItem.tscn" id="3_u132g"]
 
 [node name="Ui" type="Control"]
 layout_mode = 3
@@ -89,6 +88,7 @@ grow_vertical = 2
 focus_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="CollectionUI"]
+custom_minimum_size = Vector2(500, 400)
 layout_mode = 1
 offset_left = 90.0
 offset_top = 62.0
@@ -98,66 +98,6 @@ focus_mode = 2
 theme_override_constants/h_separation = 128
 theme_override_constants/v_separation = 128
 columns = 5
-
-[node name="CollectionItem" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem11" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem12" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem13" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem14" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem15" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem16" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem17" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem18" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem19" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem20" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem2" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem3" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem4" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem5" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem6" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem7" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem8" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem9" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
-
-[node name="CollectionItem10" parent="CollectionUI/GridContainer" instance=ExtResource("3_u132g")]
-layout_mode = 2
 
 [node name="InfoPanel" type="Control" parent="CollectionUI"]
 anchors_preset = 0

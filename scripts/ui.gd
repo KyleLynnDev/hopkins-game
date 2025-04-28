@@ -58,9 +58,12 @@ func close_all_panels():
 	dialogue.visible = false
 	
 func refresh_inventory():
-	var container = $GridContainer
-	if(container):
-		container.queue_free_children()
+	#print("Refreshing inventory...")
+	#print("Observed items:", GameData.observed_items.keys())
+	var container = $CollectionUI/GridContainer
+	for n in container.get_children():
+		container.remove_child(n)
+		n.queue_free()
 
 	var observed_names = GameData.observed_items.keys()
 	var total_slots = 20  # 5x4 grid

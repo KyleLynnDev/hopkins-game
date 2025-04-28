@@ -2,6 +2,7 @@ extends Control
 
 
 func refresh_inventory():
+	
 	var container = $GridContainer
 	container.queue_free_children()
 
@@ -19,3 +20,6 @@ func refresh_inventory():
 			entry.set_data("", "", null, false)
 		
 		container.add_child(entry)
+		print("Adding child to container:", entry)
+		
+	#print("Observed Items:", GameData.observed_items.keys())

@@ -11,16 +11,18 @@ func interact():
 	print("You interacted with:", interact_name)
 	
 	if (interact_type == "Object"): 
-		if Ui.observation.visible:
-			Ui.hide_observation()
-		else:
-			Ui.show_observation(display_name, description, sprite_preview)
-		
-		
-		if not GameData.observed_items.has(display_name):
-			GameData.observed_items[display_name] = {
+		if not GameData.observed_items.has(interact_name):
+			GameData.observed_items[interact_name] = {
 				"description" : description,
 				"sprite" : sprite_preview
 			}
-		#else:
-		#	Ui.hide_observation()
+			print("Added to GameData:", interact_name)
+		else:
+			print(interact_name, "was already observed.")	
+			
+		#now open or close observation 
+		if Ui.observation.visible:
+			Ui.hide_observation()
+		else:
+			Ui.show_observation(interact_name, description, sprite_preview)
+		
