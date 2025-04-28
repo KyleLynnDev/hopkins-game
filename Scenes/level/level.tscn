@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://cnedxfn2pxh2t"]
+[gd_scene load_steps=28 format=3 uid="uid://cnedxfn2pxh2t"]
 
 [ext_resource type="Shader" uid="uid://cdlt3ujrpad32" path="res://Scenes/level/sky_with_stars.tres" id="1_hwp5q"]
 [ext_resource type="Texture2D" uid="uid://ca3jtautvrj1u" path="res://Scenes/level/moon.png" id="2_kb37w"]
 [ext_resource type="PackedScene" uid="uid://dpt7qhsxretj4" path="res://Scenes/interactable_object.tscn" id="3_qohg2"]
 [ext_resource type="Texture2D" uid="uid://srhjy7ixwj0b" path="res://assets/Critters/Tuna.png" id="4_vuhcl"]
+[ext_resource type="Texture2D" uid="uid://dju6r6233ca6i" path="res://assets/Critters/Red Starfish.png" id="5_ko41k"]
 [ext_resource type="Texture2D" uid="uid://bvo2hobtd0mv7" path="res://assets/Critters/Salmon.png" id="5_m88n2"]
 [ext_resource type="Shader" uid="uid://cm0hhhx42yi5m" path="res://assets/Textures/toonShader.gdshader" id="6_3l3hm"]
 [ext_resource type="PackedScene" uid="uid://cd43lbfbi0q7h" path="res://Scenes/hopkins_map_terrain.tscn" id="7_vt71b"]
@@ -152,6 +153,9 @@ interact_name = "FISH"
 description = "THIS IS A TEST FISH AHHHHHHH"
 sprite_preview = ExtResource("4_vuhcl")
 
+[node name="Visual" parent="StaticBody3D2/InteractableObject" index="1"]
+texture = ExtResource("5_ko41k")
+
 [node name="InteractableObject2" parent="StaticBody3D2" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8785, 0.64, 2.24699)
 interact_name = "Tuna"
@@ -193,5 +197,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.3134, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain"]
 shape = SubResource("ConvexPolygonShape3D_8ekk8")
 
+[editable path="StaticBody3D2/InteractableObject"]
 [editable path="StaticBody3D2/InteractableObject2"]
 [editable path="StaticBody3D2/InteractableObject3"]

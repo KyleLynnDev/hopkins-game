@@ -5,6 +5,8 @@ extends Control
 @onready var observation = %ObservationPanel
 @onready var options = %OptionsMenu
 @onready var collection = %CollectionUI
+@onready var crosshair: ColorRect = $crosshair
+
 
 func is_ui_open() -> bool:
 	return collection.visible or observation.visible or dialogue.visible or options.visible
@@ -45,10 +47,10 @@ func show_observation(name: String, description : String, image: Texture):
 	
 		
 func show_item_info(name: String, desc: String, image: Texture):
-	$InfoPanel/TextureRect.texture = image
-	$InfoPanel/Label.text = name
-	$InfoPanel/RichTextLabel.text = desc
-	$InfoPanel.visible = true
+	$CollectionUI/InfoPanel/TextureRect.texture = image
+	$CollectionUI/InfoPanel/Label.text = name
+	$CollectionUI/InfoPanel/Label.text = desc
+	$CollectionUI/InfoPanel.visible = true
 	
 func close_all_panels():
 	hide_interact_prompt()
@@ -79,3 +81,10 @@ func refresh_inventory():
 			entry.set_data("", "", null, false)
 		if(container):
 			container.add_child(entry)
+			
+	# 🚨 After adding all the items:
+	await get_tree().process_frame  # Wait one frame to ensure they exist
+	if container.get_child_count() > 0:
+		var first_slot = container.get_child(0)
+		first_slot.grab_focus()
+	

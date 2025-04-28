@@ -92,6 +92,15 @@ func _input(event: InputEvent) -> void:
 			return
 			
 	if Input.is_action_just_pressed("cam_toggle") and can_toggle_camera:
+		
+		if first_person_enabled == false:
+			Ui.crosshair.visible = true;
+		else: 
+			Ui.crosshair.visible = false;
+		
+		if Ui.is_ui_open():
+			Ui.crosshair.visible = true; 	
+		
 		first_person_enabled = !first_person_enabled
 		update_camera_mode()
 		can_toggle_camera = false
@@ -116,6 +125,7 @@ func _input(event: InputEvent) -> void:
 		#print("Mouse motion:", event.relative)
 
 func _unhandled_input(event: InputEvent) -> void:
+	
 	
 	
 	var player_is_using_mouse := (
@@ -149,6 +159,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	
+	handle_camera_input(delta)
+	
 	if Ui.is_ui_open():
 		return  # Skip movement/interact
 	
@@ -161,21 +173,7 @@ func _physics_process(delta: float) -> void:
 	
 	handleCollisions(delta)
 	#print(_hovered_interactable)
-	
-	#Handle camera input
-	if first_person_enabled:
-		_camera_first_person.rotation.x += _first_person_input_direction.y * delta
-		_camera_first_person.rotation.x = clamp(_camera_first_person.rotation.x, tilt_lower_limit, tilt_upper_limit)
-		rotation.y += _first_person_input_direction.x * delta # Rotate entire player in first-person
-	else:
-		_camera_pivot.rotation.x += _third_person_input_direction.y * delta
-		_camera_pivot.rotation.x = clamp(_camera_pivot.rotation.x, tilt_lower_limit, tilt_upper_limit)
-		_camera_pivot.rotation.y += _third_person_input_direction.x * delta
 
-	_first_person_input_direction = Vector2.ZERO
-	_third_person_input_direction = Vector2.ZERO
-	
-	
 	#Use correct camera
 	var _camera = _camera_first_person if first_person_enabled else _camera_third_person
 
@@ -255,6 +253,7 @@ func update_camera_mode():
 		
 
 	if first_person_enabled:
+		
 	# Get third-person look angles
 		var yaw = _camera_pivot.rotation.y
 		var pitch = _camera_pivot.rotation.x
@@ -262,10 +261,15 @@ func update_camera_mode():
 	# Apply them to body and first-person camera
 		rotation.y = yaw  # rotate the body
 		_camera_first_person.rotation.x = pitch
+		# 🛠 Fix input and mouse capture immediately
+	if first_person_enabled:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-
-	# TODO: adjust input settings, like mouse sensitivity
-	
+	# 🛠 Reset input direction so camera doesn't "stutter" after switching
+	_first_person_input_direction = Vector2.ZERO
+	_third_person_input_direction = Vector2.ZERO
 	
 func handleCollisions(delta):
 	
@@ -340,3 +344,19 @@ func _on_interaction_detector_body_entered(body: Node3D) -> void:
 func _on_interaction_detector_body_exited(body: Node3D) -> void:
 	if _nearby_target == body:
 		_nearby_target = null
+
+
+
+func handle_camera_input(delta):
+	#Handle camera input
+	if first_person_enabled:
+		_camera_first_person.rotation.x += _first_person_input_direction.y * delta
+		_camera_first_person.rotation.x = clamp(_camera_first_person.rotation.x, tilt_lower_limit, tilt_upper_limit)
+		rotation.y += _first_person_input_direction.x * delta # Rotate entire player in first-person
+	else:
+		_camera_pivot.rotation.x += _third_person_input_direction.y * delta
+		_camera_pivot.rotation.x = clamp(_camera_pivot.rotation.x, tilt_lower_limit, tilt_upper_limit)
+		_camera_pivot.rotation.y += _third_person_input_direction.x * delta
+
+	_first_person_input_direction = Vector2.ZERO
+	_third_person_input_direction = Vector2.ZERO

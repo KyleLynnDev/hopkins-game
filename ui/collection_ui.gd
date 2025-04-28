@@ -20,6 +20,9 @@ func refresh_inventory():
 			entry.set_data("", "", null, false)
 		
 		container.add_child(entry)
-		print("Adding child to container:", entry)
+		#print("Adding child to container:", entry)
+	if container.get_child_count() > 0:
+		var first_slot = container.get_child(0)
+		first_slot.grab_focus()
 		
 	#print("Observed Items:", GameData.observed_items.keys())

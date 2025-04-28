@@ -1,34 +1,43 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgc7sg6ll8kqd"]
 
-[ext_resource type="Texture2D" uid="uid://ci03wfflautxe" path="res://icon.svg" id="1_1j75c"]
 [ext_resource type="Script" uid="uid://ceyuv8ne6obuo" path="res://ui/collection_item.gd" id="1_vfrd7"]
+[ext_resource type="Texture2D" uid="uid://dju6r6233ca6i" path="res://assets/Critters/Red Starfish.png" id="2_vfrd7"]
 
 [node name="CollectionItem" type="Button"]
-offset_right = 128.0
-offset_bottom = 128.0
+custom_minimum_size = Vector2(66, 66)
+offset_right = 64.0
+offset_bottom = 96.0
 size_flags_horizontal = 4
+action_mode = 0
 script = ExtResource("1_vfrd7")
 
 [node name="ItemSprite" type="TextureRect" parent="."]
 unique_name_in_owner = true
+texture_filter = 1
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
+offset_right = 64.0
+offset_bottom = 64.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_1j75c")
+texture = ExtResource("2_vfrd7")
 stretch_mode = 5
 
 [node name="ItemName" type="Label" parent="."]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(100, 32)
-layout_mode = 2
-offset_left = 14.0
-offset_top = 135.0
-offset_right = 114.0
-offset_bottom = 167.0
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
 text = "Item Name"
 autowrap_mode = 3
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
