@@ -29,9 +29,45 @@ offset_bottom = 40.0
 [node name="ObservationPanel" type="Control" parent="."]
 unique_name_in_owner = true
 visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+
+[node name="Panel" type="Panel" parent="ObservationPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+
+[node name="ObjectImage" type="TextureRect" parent="ObservationPanel/Panel"]
+layout_mode = 0
+offset_left = -87.0
+offset_top = -41.0
+offset_right = -47.0
+offset_bottom = -1.0
+
+[node name="ObjectName" type="Label" parent="ObservationPanel/Panel"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = -43.0
+offset_right = 65.0
+offset_bottom = -20.0
+
+[node name="ObjectDescription" type="RichTextLabel" parent="ObservationPanel/Panel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = -4.0
+offset_right = 80.0
+offset_bottom = 36.0
 
 [node name="OptionsMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -39,3 +75,34 @@ visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+focus_mode = 2
+
+[node name="CollectionUI" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CollectionUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 280.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CollectionUI/ScrollContainer"]
+layout_mode = 2
+focus_mode = 2

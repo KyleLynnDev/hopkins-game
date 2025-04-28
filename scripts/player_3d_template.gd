@@ -44,7 +44,7 @@ var first_person_enabled := false
 # We store the initial position of the player to reset to it when the player falls off the map.
 @onready var _start_position := global_position
 
-@onready var _camera_pivot: Node3D = %CameraPivot
+@onready var _camera_pivot = %CameraPivot
 @onready var _camera: Camera3D = %ThirdPersonCam
 @onready var _skin: SophiaSkin = %SophiaSkin
 @onready var _landing_sound: AudioStreamPlayer3D = %LandingSound
@@ -86,6 +86,14 @@ func _input(event: InputEvent) -> void:
 		# Start cooldown timer
 		await get_tree().create_timer(toggle_cooldown).timeout
 		can_toggle_camera = true
+		
+	if Input.is_action_just_pressed("open_collection"):
+		Ui.open_collection()
+		
+	if event.is_action_pressed("ui_cancel"):
+		if Ui.collection.visible:
+			Ui.collection.visible = false
+			get_tree().set_input_as_handled()
 	
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -96,6 +104,7 @@ func _input(event: InputEvent) -> void:
 		#print("Mouse motion:", event.relative)
 
 func _unhandled_input(event: InputEvent) -> void:
+	
 	
 	var player_is_using_mouse := (
 		event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
@@ -127,6 +136,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
+	if Ui.is_ui_open():
+		return  # Skip movement/interact
 	
 	#Handle camera input
 	#Use correct camera
@@ -204,6 +216,7 @@ func _physics_process(delta: float) -> void:
 	#print("Skin forward:", -_skin.global_transform.basis.z)
 		
 	move_and_slide()
+	_skin.set_facing_direction(raw_input)
 	
 func update_camera_mode():
 	_camera_third_person.current = !first_person_enabled

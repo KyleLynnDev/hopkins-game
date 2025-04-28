@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd43lbfbi0q7h"]
+
+[ext_resource type="PackedScene" uid="uid://huegp814sb8" path="res://assets/Models/HopkinsMapTerrain.glb" id="1_nuxqu"]
+
+[node name="HopkinsMapTerrain" instance=ExtResource("1_nuxqu")]
