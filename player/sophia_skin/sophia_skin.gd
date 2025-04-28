@@ -66,10 +66,10 @@ func move():
 	sprite.play("run")
 
 func jump():
-	sprite.play("run")  # You can separate if you want different jump frames
+	sprite.play("jump")  # You can separate if you want different jump frames
 
 func fall():
-	sprite.play("run")  # Same here, optional
+	sprite.play("fall")  # Same here, optional
 
 # Flip sprite depending on input direction
 func set_facing_direction(direction: Vector2):

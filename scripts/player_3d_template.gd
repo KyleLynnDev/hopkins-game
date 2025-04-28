@@ -36,6 +36,8 @@ var _third_person_input_direction := Vector2.ZERO
 var _first_person_input_direction := Vector2.ZERO
 
 var first_person_enabled := false
+var can_interact: bool = true
+var interact_cooldown: float = 0.25  # seconds
 
 
 ## The last movement or aim direction input by the player. We use this to orient
@@ -50,6 +52,7 @@ var first_person_enabled := false
 @onready var _landing_sound: AudioStreamPlayer3D = %LandingSound
 @onready var _jump_sound: AudioStreamPlayer3D = %JumpSound
 @onready var _dust_particles: GPUParticles3D = %DustParticles
+@onready var collection_ui: Control = %CollectionUI
 
 #Switching Camera perspective variables
 
@@ -79,6 +82,15 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("Interaction"):
+		if Ui.observation.visible:
+			Ui.hide_observation()
+			can_interact = false
+			await get_tree().create_timer(interact_cooldown).timeout
+			can_interact = true
+			return
+			
 	if Input.is_action_just_pressed("cam_toggle") and can_toggle_camera:
 		first_person_enabled = !first_person_enabled
 		update_camera_mode()
@@ -88,15 +100,15 @@ func _input(event: InputEvent) -> void:
 		can_toggle_camera = true
 		
 	if Input.is_action_just_pressed("open_collection"):
+		Ui.refresh_inventory() 
 		Ui.open_collection()
 		
 	if event.is_action_pressed("ui_cancel"):
-		if Ui.collection.visible:
-			Ui.collection.visible = false
-			get_tree().set_input_as_handled()
-	
-	if event.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		if Ui.is_ui_open():
+			Ui.close_all_panels()
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
 	elif event.is_action_pressed("left_click"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -256,6 +268,9 @@ func update_camera_mode():
 	
 	
 func handleCollisions(delta):
+	
+	if Ui.is_ui_open():
+		return  # Skip normal hovering/interacting when UI is open
 	# Raycast update
 	_raycast.force_raycast_update()
 	if _raycast.is_colliding():
@@ -276,8 +291,9 @@ func handleCollisions(delta):
 		
 	if _hovered_interactable:
 		Ui.show_interact_prompt("Press E to examine " + _hovered_interactable.interact_name)
-		if Input.is_action_just_pressed("Interaction"):
-			_hovered_interactable.interact()
+		if Input.is_action_just_pressed("Interaction") and can_interact:
+			if not Ui.observation.visible:
+				_hovered_interactable.interact()
 	else:
 		Ui.hide_interact_prompt()
 		

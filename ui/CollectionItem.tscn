@@ -3,31 +3,32 @@
 [ext_resource type="Texture2D" uid="uid://ci03wfflautxe" path="res://icon.svg" id="1_1j75c"]
 [ext_resource type="Script" uid="uid://ceyuv8ne6obuo" path="res://ui/collection_item.gd" id="1_vfrd7"]
 
-[node name="ViewButton" type="Button"]
-offset_right = 8.0
+[node name="CollectionItem" type="Button"]
+offset_right = 128.0
 offset_bottom = 128.0
 size_flags_horizontal = 4
 script = ExtResource("1_vfrd7")
 
-[node name="CollectionItem" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 213.0
-offset_bottom = 128.0
-focus_mode = 2
-
-[node name="ItemSprite" type="TextureRect" parent="CollectionItem"]
+[node name="ItemSprite" type="TextureRect" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_1j75c")
 stretch_mode = 5
 
-[node name="ItemName" type="Label" parent="CollectionItem"]
+[node name="ItemName" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(100, 32)
 layout_mode = 2
+offset_left = 14.0
+offset_top = 135.0
+offset_right = 114.0
+offset_bottom = 167.0
 size_flags_horizontal = 0
 text = "Item Name"
 autowrap_mode = 3

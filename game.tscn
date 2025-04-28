@@ -9,12 +9,5 @@ script = ExtResource("1_1il7v")
 
 [node name="Player3DTemplate" parent="." instance=ExtResource("1_w0p8v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43638, 0.808912, -7.8513)
-move_speed = null
-jump_impulse = null
-rotation_speed = null
-stopping_speed = null
-mouse_sensitivity = null
-tilt_upper_limit = null
-tilt_lower_limit = null
 
 [node name="Level" parent="." instance=ExtResource("7_2frud")]

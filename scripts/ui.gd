@@ -19,17 +19,23 @@ func hide_interact_prompt():
 func open_dialogue(lines: Array):
 	dialogue.show()
 	dialogue.set_lines(lines)
-
-func open_observation(data: Dictionary):
-	observation.show()
-	observation.set_data(data)
 	
 func open_collection():
-	refresh_collection()
-	%CollectionUI.visible = !%CollectionUI.visible;
+	if(collection.visible == true):
+		hide_collection()
+	else:
+		Ui.refresh_inventory()
+		collection.visible = true
 	
 func hide_observation():
-	observation.hide()
+	$ObservationPanel/Panel/ObjectName.text = ""
+	$ObservationPanel/Panel/ObjectDescription.text = ""
+	$ObservationPanel/Panel/ObjectImage.texture = null
+	observation.visible = false
+	
+func hide_collection():
+	collection.visible = false; 
+	
 	
 func show_observation(name: String, description : String, image: Texture):
 	$ObservationPanel/Panel/ObjectName.text = name
@@ -37,20 +43,36 @@ func show_observation(name: String, description : String, image: Texture):
 	$ObservationPanel/Panel/ObjectImage.texture = image
 	observation.visible = true; 
 	
-func refresh_collection():
-	var container = $CollectionUI/ScrollContainer/VBoxContainer
-	#container.clear_children()
-	var children = container.get_children()
-	for child in children:
-		child.free()
-	
-	for name in GameData.observed_items.keys():
-		var data = GameData.observed_items[name]
-		var entry = preload("res://ui/CollectionItem.tscn").instantiate()
-		entry.set_data(name, data.description, data.sprite)
-		container.add_child(entry)
 		
-	# Auto-focus the first entry
-	if container.get_child_count() > 0:
-		var first = container.get_child(0)
-		first.grab_focus()
+func show_item_info(name: String, desc: String, image: Texture):
+	$InfoPanel/TextureRect.texture = image
+	$InfoPanel/Label.text = name
+	$InfoPanel/RichTextLabel.text = desc
+	$InfoPanel.visible = true
+	
+func close_all_panels():
+	hide_interact_prompt()
+	hide_observation()
+	hide_collection()
+	options.visible = false
+	dialogue.visible = false
+	
+func refresh_inventory():
+	var container = $GridContainer
+	if(container):
+		container.queue_free_children()
+
+	var observed_names = GameData.observed_items.keys()
+	var total_slots = 20  # 5x4 grid
+	
+	for i in range(total_slots):
+		var entry = preload("res://ui/CollectionItem.tscn").instantiate()
+		
+		if i < observed_names.size():
+			var item_name = observed_names[i]
+			var item_data = GameData.observed_items[item_name]
+			entry.set_data(item_name, item_data["description"], item_data["sprite"], true)
+		else:
+			entry.set_data("", "", null, false)
+		if(container):
+			container.add_child(entry)

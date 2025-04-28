@@ -11,7 +11,11 @@ func interact():
 	print("You interacted with:", interact_name)
 	
 	if (interact_type == "Object"): 
-		Ui.show_observation(display_name, description, sprite_preview)
+		if Ui.observation.visible:
+			Ui.hide_observation()
+		else:
+			Ui.show_observation(display_name, description, sprite_preview)
+		
 		
 		if not GameData.observed_items.has(display_name):
 			GameData.observed_items[display_name] = {

@@ -1,45 +1,90 @@
-[gd_scene load_steps=46 format=3 uid="uid://prh35jb6tjtd"]
+[gd_scene load_steps=53 format=3 uid="uid://prh35jb6tjtd"]
 
 [ext_resource type="PackedScene" uid="uid://16iu10wxub40" path="res://player/sophia_skin/model/sophia.glb" id="1_e4pev"]
 [ext_resource type="Script" uid="uid://lrbjdlm1ul87" path="res://player/sophia_skin/sophia_skin.gd" id="1_obcib"]
-[ext_resource type="Texture2D" uid="uid://camn5a5ya27ua" path="res://assets/NPCs/test animations.png" id="4_i6i6m"]
+[ext_resource type="Texture2D" uid="uid://lxa4gaxedmm0" path="res://assets/Player/Player Sprites.png" id="2_i6i6m"]
 [ext_resource type="Material" uid="uid://dye01l0ct4fby" path="res://player/sophia_skin/model/materials/eye_mat_override.tres" id="4_mms51"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r7l8c"]
-atlas = ExtResource("4_i6i6m")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_busbn"]
-atlas = ExtResource("4_i6i6m")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qejri"]
-atlas = ExtResource("4_i6i6m")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v2337"]
-atlas = ExtResource("4_i6i6m")
-region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4awtk"]
-atlas = ExtResource("4_i6i6m")
-region = Rect2(64, 64, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6i6m"]
+atlas = ExtResource("2_i6i6m")
+region = Rect2(128, 256, 64, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b65fc"]
-atlas = ExtResource("4_i6i6m")
-region = Rect2(128, 64, 64, 64)
+atlas = ExtResource("2_i6i6m")
+region = Rect2(192, 256, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7l8c"]
+atlas = ExtResource("2_i6i6m")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_busbn"]
+atlas = ExtResource("2_i6i6m")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qejri"]
+atlas = ExtResource("2_i6i6m")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2337"]
+atlas = ExtResource("2_i6i6m")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4awtk"]
+atlas = ExtResource("2_i6i6m")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8knnp"]
+atlas = ExtResource("2_i6i6m")
+region = Rect2(0, 256, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l05pw"]
+atlas = ExtResource("2_i6i6m")
+region = Rect2(64, 256, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf0gq"]
+atlas = ExtResource("2_i6i6m")
+region = Rect2(0, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skrfw"]
+atlas = ExtResource("2_i6i6m")
+region = Rect2(64, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3qs3"]
+atlas = ExtResource("2_i6i6m")
+region = Rect2(128, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2648"]
+atlas = ExtResource("2_i6i6m")
+region = Rect2(192, 128, 64, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v2337"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6i6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b65fc")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 3.0,
 "texture": SubResource("AtlasTexture_r7l8c")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_busbn")
 }, {
 "duration": 4.0,
 "texture": SubResource("AtlasTexture_qejri")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_v2337")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_4awtk")
 }],
 "loop": true,
 "name": &"idle",
@@ -47,17 +92,31 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v2337")
+"texture": SubResource("AtlasTexture_8knnp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4awtk")
+"texture": SubResource("AtlasTexture_l05pw")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf0gq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b65fc")
+"texture": SubResource("AtlasTexture_skrfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3qs3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2648")
 }],
 "loop": true,
 "name": &"run",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vapre"]
@@ -192,14 +251,14 @@ node_connections = [&"output", 0, &"StateMachine"]
 script = ExtResource("1_obcib")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.94809, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.25593, 0)
 billboard = 2
 texture_filter = 0
 render_priority = 5
 sprite_frames = SubResource("SpriteFrames_v2337")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.775073
+frame_progress = 0.987767
 
 [node name="sophia" parent="." instance=ExtResource("1_e4pev")]
 
