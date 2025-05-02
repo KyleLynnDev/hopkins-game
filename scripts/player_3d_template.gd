@@ -86,6 +86,10 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	
+	if Input.is_action_just_pressed("reset"):
+		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	
+	
 	if event.is_action_pressed("Interaction"):
 		if Ui.observation.visible:
 			Ui.hide_observation()
@@ -313,7 +317,7 @@ func handleCollisions(delta):
 	 # prioritize raycast if available
 		
 	if _hovered_interactable:
-		Ui.show_interact_prompt("Press E to examine " + _hovered_interactable.interact_name)
+		Ui.show_interact_prompt("Press A to examine " + _hovered_interactable.interact_name)
 		if Input.is_action_just_pressed("Interaction") and can_interact:
 			if not Ui.observation.visible:
 				_hovered_interactable.interact()

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hopkins Game"
-run/main_scene="uid://eneduqhugta2"
+run/main_scene="uid://6vh4qehvw0vd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -29,6 +29,11 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "bio_1dialogue": "res://timelines/bio_1dialogue.dtl",
+"dude_1": "res://timelines/dude_1.dtl",
+"fishGuy_1": "res://timelines/fishGuy_1.dtl",
+"girl_1": "res://timelines/girl_1.dtl",
+"jenny_1": "res://timelines/jenny_1.dtl",
+"researcher_1": "res://timelines/researcher_1.dtl",
 "test dialogue": "res://timelines/test dialogue.dtl"
 }
 layout/style_list=["res://timelines/textboxStyle.tres"]
@@ -159,6 +164,11 @@ open_collection={
 "deadzone": 0.2,
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":3,"pressure":0.0,"pressed":true,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
+}
+reset={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":75,"key_label":0,"unicode":107,"location":0,"echo":false,"script":null)
 ]
 }
 

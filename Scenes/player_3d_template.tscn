@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1ot6gn6tms6h"]
+[gd_scene load_steps=14 format=3 uid="uid://b1ot6gn6tms6h"]
 
 [ext_resource type="Script" uid="uid://wa3x0bl4msop" path="res://scripts/player_3d_template.gd" id="1_dpokc"]
 [ext_resource type="PackedScene" uid="uid://prh35jb6tjtd" path="res://player/sophia_skin/sophia_skin.tscn" id="2_4dj54"]
 [ext_resource type="AudioStream" uid="uid://bhoyegbjust84" path="res://player/sounds/robot_land.wav" id="3_kbqxf"]
 [ext_resource type="AudioStream" uid="uid://b4x0f4pgfifoo" path="res://player/sounds/robot_jump.wav" id="4_1v0dq"]
+[ext_resource type="AudioStream" uid="uid://c3b7y4q22bqmc" path="res://assets/sounds/guitar-on-the-beach-2-316334.mp3" id="5_1jveo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e8pdu"]
 radius = 0.4
@@ -114,6 +115,12 @@ target_position = Vector3(0, -10, 0)
 [node name="ProximityCollider" type="CollisionShape3D" parent="InteractionDetector"]
 transform = Transform3D(3.21574, 0, 0, 0, 2.1607, 0, 0, 0, 3.20852, 0, 0.850866, 0)
 shape = SubResource("SphereShape3D_qagb2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1jveo")
+volume_db = -0.045
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="InteractionDetector" to="." method="_on_interaction_detector_body_entered"]
 [connection signal="body_exited" from="InteractionDetector" to="." method="_on_interaction_detector_body_exited"]

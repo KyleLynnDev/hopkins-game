@@ -1,13 +1,11 @@
-[gd_scene load_steps=68 format=3 uid="uid://cnedxfn2pxh2t"]
+[gd_scene load_steps=73 format=3 uid="uid://cnedxfn2pxh2t"]
 
 [ext_resource type="Shader" uid="uid://cdlt3ujrpad32" path="res://Scenes/level/sky_with_stars.tres" id="1_hwp5q"]
 [ext_resource type="Texture2D" uid="uid://ca3jtautvrj1u" path="res://Scenes/level/moon.png" id="2_kb37w"]
 [ext_resource type="Shader" path="res://assets/shaders/64-water-intense.gdshader" id="3_6l7lv"]
 [ext_resource type="PackedScene" uid="uid://dpt7qhsxretj4" path="res://Scenes/interactable_object.tscn" id="3_qohg2"]
 [ext_resource type="Texture2D" uid="uid://se0jofth766q" path="res://assets/shaders/n_noise_1.tres" id="4_hry71"]
-[ext_resource type="Texture2D" uid="uid://srhjy7ixwj0b" path="res://assets/Critters/Tuna.png" id="4_vuhcl"]
 [ext_resource type="Texture2D" uid="uid://dju6r6233ca6i" path="res://assets/Critters/Red Starfish.png" id="5_ko41k"]
-[ext_resource type="Texture2D" uid="uid://bvo2hobtd0mv7" path="res://assets/Critters/Salmon.png" id="5_m88n2"]
 [ext_resource type="Texture2D" uid="uid://doxrs8ylslm77" path="res://assets/shaders/n_noise_2.tres" id="5_mu1ig"]
 [ext_resource type="Texture2D" uid="uid://csgmprfe3rsxt" path="res://assets/shaders/u_w_noise.tres" id="6_t4pit"]
 [ext_resource type="Texture2D" uid="uid://bcisiossl267v" path="res://assets/shaders/new_noise_texture_2d.tres" id="7_1ms1e"]
@@ -17,11 +15,14 @@
 [ext_resource type="Texture2D" uid="uid://b8a3hnrqqg6gl" path="res://assets/shaders/foam_w_noise.tres" id="8_5lkpi"]
 [ext_resource type="Texture2D" uid="uid://cmrismi6emjeb" path="res://assets/Critters/SEAL.png" id="8_cv5ke"]
 [ext_resource type="Texture2D" uid="uid://cmxxwq12bn4xg" path="res://assets/Critters/SeaCucumber.png" id="8_ke361"]
+[ext_resource type="Texture2D" uid="uid://cruu4ndcxgquk" path="res://assets/Critters/Brown Algae.png" id="9_j5dh0"]
 [ext_resource type="Texture2D" uid="uid://bcoifxgvk71ac" path="res://assets/Critters/snail.png" id="9_vfvxx"]
 [ext_resource type="Texture2D" uid="uid://dphqw0oxntwcj" path="res://assets/NPCs/SugoiScientist.png" id="10_34wsb"]
 [ext_resource type="Texture2D" uid="uid://deqli5uoymil4" path="res://assets/Critters/calififornia mussel.png" id="10_cu2ep"]
 [ext_resource type="Texture2D" uid="uid://dxb518u20xcv0" path="res://assets/NPCs/tallScientist.png" id="10_e62ca"]
+[ext_resource type="Texture2D" uid="uid://clqk1ok34p1vw" path="res://assets/Critters/GreenAlgae.png" id="10_t8en0"]
 [ext_resource type="Texture2D" uid="uid://dj1mm1ogtpbo" path="res://assets/NPCs/NiceScientist.png" id="10_xanqo"]
+[ext_resource type="Texture2D" uid="uid://5oylspe8ojbe" path="res://assets/Critters/Red Algae.png" id="11_ryjy1"]
 [ext_resource type="Texture2D" uid="uid://cuq4uw1486kx" path="res://assets/NPCs/SurferDudeScientist.png" id="12_e62ca"]
 [ext_resource type="Texture2D" uid="uid://ebt56878tfv6" path="res://assets/Critters/Otter.png" id="12_qxng8"]
 [ext_resource type="Texture2D" uid="uid://cgdj8xmbd8ooj" path="res://assets/Critters/shrimp.png" id="14_muo7v"]
@@ -37,6 +38,10 @@
 [ext_resource type="PackedScene" uid="uid://ci6yc63e5b7gq" path="res://assets/Models/monterey_cyprus.tscn" id="21_1ms1e"]
 [ext_resource type="PackedScene" uid="uid://cmjposixfccax" path="res://assets/Models/brush.tscn" id="21_5lkpi"]
 [ext_resource type="PackedScene" uid="uid://tk2xut2i0qbw" path="res://assets/Models/monterey_cyprus_2.tscn" id="22_5lkpi"]
+[ext_resource type="Texture2D" uid="uid://h0oenlm778da" path="res://assets/Critters/Sea Urchin.png" id="22_eyj1t"]
+[ext_resource type="Texture2D" uid="uid://dgrxurvhjtyoa" path="res://assets/Critters/ChitonShell.png" id="23_vsrl3"]
+[ext_resource type="Texture2D" uid="uid://dfvrxv2ggyyuk" path="res://assets/Critters/Coral.png" id="24_f51lb"]
+[ext_resource type="Texture2D" uid="uid://blctyuwvyed2o" path="res://assets/Critters/Abalone.png" id="25_ed5vi"]
 [ext_resource type="PackedScene" uid="uid://c12x6xrbcjsjk" path="res://assets/Models/woodfence.tscn" id="26_oseyt"]
 [ext_resource type="Texture2D" uid="uid://c153nolbfy5tr" path="res://assets/Textures/hopkins sign.png" id="27_jsk0a"]
 [ext_resource type="Texture2D" uid="uid://caip5gxdiu6kd" path="res://assets/Textures/SEAL VIEWING AREA.PNG" id="28_cv5ke"]
@@ -126,8 +131,7 @@ volumetric_fog_density = 0.01
 volumetric_fog_albedo = Color(0.843137, 0.737255, 0.329412, 1)
 volumetric_fog_emission = Color(0.843137, 0.737255, 0.329412, 1)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_5hfko"]
-radius = 4.0
+[sub_resource type="SphereShape3D" id="SphereShape3D_pj2rk"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ko41k"]
 size = Vector2(500, 500)
@@ -214,74 +218,370 @@ visible = false
 [node name="InteractableObjects" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23019, 0)
 
-[node name="Test Object" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.83684, 0.64, -4.96588)
-interact_name = "FISH"
-description = "THIS IS A TEST FISH AHHHHHHH"
-sprite_preview = ExtResource("4_vuhcl")
-
-[node name="Visual" parent="InteractableObjects/Test Object" index="1"]
-texture = ExtResource("5_ko41k")
-
 [node name="Scallop" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5582, -13.8718, -106.935)
 interact_name = "Scallop"
-description = "A fine shell"
+description = "Scallops can clap their shells to swim away from danger. Plus, they have dozens of tiny eyes all along their edges!"
 sprite_preview = ExtResource("7_iokid")
 
-[node name="Visual" parent="InteractableObjects/Scallop" index="1"]
+[node name="PreciseCollider2" type="CollisionShape3D" parent="InteractableObjects/Scallop"]
+shape = SubResource("SphereShape3D_pj2rk")
+
+[node name="Visual" parent="InteractableObjects/Scallop" index="2"]
 texture = ExtResource("7_iokid")
 
-[node name="Scallop2" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+[node name="Mussel" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.0288, -11.7511, -78.6897)
 interact_name = "California Mussel"
-description = "yummy!"
+description = "Mussels hang out in huge groups on rocks, holding on tight with threads like natural glue while filtering plankton from the waves."
 sprite_preview = ExtResource("10_cu2ep")
 
-[node name="Visual" parent="InteractableObjects/Scallop2" index="1"]
+[node name="Visual" parent="InteractableObjects/Mussel" index="1"]
 texture = ExtResource("10_cu2ep")
+
+[node name="Mussel2" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.5722, -11.7511, -75.5939)
+interact_name = "California Mussel"
+description = "Mussels hang out in huge groups on rocks, holding on tight with threads like natural glue while filtering plankton from the waves."
+sprite_preview = ExtResource("10_cu2ep")
+
+[node name="Visual" parent="InteractableObjects/Mussel2" index="1"]
+texture = ExtResource("10_cu2ep")
+
+[node name="Mussel3" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.2446, -11.7511, -86.8361)
+interact_name = "California Mussel"
+description = "Mussels hang out in huge groups on rocks, holding on tight with threads like natural glue while filtering plankton from the waves."
+sprite_preview = ExtResource("10_cu2ep")
+
+[node name="Visual" parent="InteractableObjects/Mussel3" index="1"]
+texture = ExtResource("10_cu2ep")
+
+[node name="Mussel4" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.3441, -14.3518, -107.523)
+interact_name = "California Mussel"
+description = "Mussels hang out in huge groups on rocks, holding on tight with threads like natural glue while filtering plankton from the waves."
+sprite_preview = ExtResource("10_cu2ep")
+
+[node name="Visual" parent="InteractableObjects/Mussel4" index="1"]
+texture = ExtResource("10_cu2ep")
+
+[node name="Brown Algae" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 167.409, -11.8932, -9.03487)
+interact_name = "Brown Algae"
+description = "This group includes giant kelp, which can grow super tall like an underwater forest that sea otters and fish love to explore."
+sprite_preview = ExtResource("9_j5dh0")
+
+[node name="Visual" parent="InteractableObjects/Brown Algae" index="1"]
+texture = ExtResource("9_j5dh0")
+
+[node name="Brown Algae2" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.392, -13.8178, -25.1082)
+interact_name = "Brown Algae"
+description = "This group includes giant kelp, which can grow super tall like an underwater forest that sea otters and fish love to explore."
+sprite_preview = ExtResource("9_j5dh0")
+
+[node name="Visual" parent="InteractableObjects/Brown Algae2" index="1"]
+texture = ExtResource("9_j5dh0")
+
+[node name="Brown Algae3" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.904, -13.6017, -64.4725)
+interact_name = "Brown Algae"
+description = "This group includes giant kelp, which can grow super tall like an underwater forest that sea otters and fish love to explore."
+sprite_preview = ExtResource("9_j5dh0")
+
+[node name="Visual" parent="InteractableObjects/Brown Algae3" index="1"]
+texture = ExtResource("9_j5dh0")
+
+[node name="Brown Algae4" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.411, -12.6648, -49.9173)
+interact_name = "Brown Algae"
+description = "This group includes giant kelp, which can grow super tall like an underwater forest that sea otters and fish love to explore."
+sprite_preview = ExtResource("9_j5dh0")
+
+[node name="Visual" parent="InteractableObjects/Brown Algae4" index="1"]
+texture = ExtResource("9_j5dh0")
+
+[node name="Green Algae" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170.957, -13.4001, -15.1232)
+interact_name = "Green Algae"
+description = "Bright and fresh-looking, green algae grow in sunny tidepools. Most land plants are related to green algae!"
+sprite_preview = ExtResource("10_t8en0")
+
+[node name="Visual" parent="InteractableObjects/Green Algae" index="1"]
+texture = ExtResource("10_t8en0")
+
+[node name="Green Algae2" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.741, -12.3867, -14.4029)
+interact_name = "Green Algae"
+description = "Bright and fresh-looking, green algae grow in sunny tidepools. Most land plants are related to green algae!"
+sprite_preview = ExtResource("10_t8en0")
+
+[node name="Visual" parent="InteractableObjects/Green Algae2" index="1"]
+texture = ExtResource("10_t8en0")
+
+[node name="Green Algae3" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.875, -12.6286, -20.9326)
+interact_name = "Green Algae"
+description = "Bright and fresh-looking, green algae grow in sunny tidepools. Most land plants are related to green algae!"
+sprite_preview = ExtResource("10_t8en0")
+
+[node name="Visual" parent="InteractableObjects/Green Algae3" index="1"]
+texture = ExtResource("10_t8en0")
+
+[node name="Red Algae" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.811, -11.8932, -9.03487)
+interact_name = "Red Algae"
+description = "Often soft or leafy, red algae love deeper waters where there's less light and are a favorite food for sea snails and abalone."
+sprite_preview = ExtResource("11_ryjy1")
+
+[node name="Visual" parent="InteractableObjects/Red Algae" index="1"]
+texture = ExtResource("11_ryjy1")
+
+[node name="Red Algae2" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.029, -11.8932, -13.2043)
+interact_name = "Red Algae"
+description = "Often soft or leafy, red algae love deeper waters where there's less light and are a favorite food for sea snails and abalone."
+sprite_preview = ExtResource("11_ryjy1")
+
+[node name="Visual" parent="InteractableObjects/Red Algae2" index="1"]
+texture = ExtResource("11_ryjy1")
+
+[node name="Red Algae3" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.672, -13.4581, -20.6496)
+interact_name = "Red Algae"
+description = "Often soft or leafy, red algae love deeper waters where there's less light and are a favorite food for sea snails and abalone."
+sprite_preview = ExtResource("11_ryjy1")
+
+[node name="Visual" parent="InteractableObjects/Red Algae3" index="1"]
+texture = ExtResource("11_ryjy1")
 
 [node name="Anemone" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.645, -14.2328, -106.357)
-interact_name = "Scallop"
-description = "A fine shell"
+interact_name = "Strawberry Anemone"
+description = "Bright red with white dots, these little guys look just like berries but are actually sticky-tentacled hunters catching tiny sea creatures. They are related to jellyfish!"
 sprite_preview = ExtResource("8_0uryg")
 
 [node name="Visual" parent="InteractableObjects/Anemone" index="1"]
 texture = ExtResource("8_0uryg")
 
+[node name="Anemone2" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.4774, -14.2328, -117.795)
+interact_name = "Strawberry Anemone"
+description = "Bright red with white dots, these little guys look just like berries but are actually sticky-tentacled hunters catching tiny sea creatures. They are related to jellyfish!"
+sprite_preview = ExtResource("8_0uryg")
+
+[node name="Visual" parent="InteractableObjects/Anemone2" index="1"]
+texture = ExtResource("8_0uryg")
+
+[node name="Anemone3" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.9624, -14.2328, -121.769)
+interact_name = "Strawberry Anemone"
+description = "Bright red with white dots, these little guys look just like berries but are actually sticky-tentacled hunters catching tiny sea creatures. They are related to jellyfish!"
+sprite_preview = ExtResource("8_0uryg")
+
+[node name="Visual" parent="InteractableObjects/Anemone3" index="1"]
+texture = ExtResource("8_0uryg")
+
+[node name="Anemone4" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8749, -12.7241, -126.031)
+interact_name = "Strawberry Anemone"
+description = "Bright red with white dots, these little guys look just like berries but are actually sticky-tentacled hunters catching tiny sea creatures. They are related to jellyfish!"
+sprite_preview = ExtResource("8_0uryg")
+
+[node name="Visual" parent="InteractableObjects/Anemone4" index="1"]
+texture = ExtResource("8_0uryg")
+
+[node name="Anemone5" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.206, -13.517, -114.194)
+interact_name = "Strawberry Anemone"
+description = "Bright red with white dots, these little guys look just like berries but are actually sticky-tentacled hunters catching tiny sea creatures. They are related to jellyfish!"
+sprite_preview = ExtResource("8_0uryg")
+
+[node name="Visual" parent="InteractableObjects/Anemone5" index="1"]
+texture = ExtResource("8_0uryg")
+
 [node name="Snail" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 9.02573e-05, 7.21785e-05, -9.02778e-05, 1, 0.000384428, -7.21529e-05, -0.000384433, 1, 35.4797, -14.4924, -103.444)
 interact_name = "Black Turban Snail"
-description = "A fine shell"
+description = "These dark, round snails slowly graze on algae with a rough tongue and wear a thick shell to keep safe from hungry predators."
 sprite_preview = ExtResource("9_vfvxx")
 
 [node name="Visual" parent="InteractableObjects/Snail" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11311, 0.147983, 0)
 texture = ExtResource("9_vfvxx")
 
+[node name="Snail2" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 9.02573e-05, 7.21785e-05, -9.02778e-05, 1, 0.000384428, -7.21529e-05, -0.000384433, 1, -11.0378, -14.0143, -108.98)
+interact_name = "Black Turban Snail"
+description = "These dark, round snails slowly graze on algae with a rough tongue and wear a thick shell to keep safe from hungry predators."
+sprite_preview = ExtResource("9_vfvxx")
+
+[node name="Visual" parent="InteractableObjects/Snail2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11311, 0.147983, 0)
+texture = ExtResource("9_vfvxx")
+
+[node name="Snail3" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 9.02573e-05, 7.21785e-05, -9.02778e-05, 1, 0.000384428, -7.21529e-05, -0.000384433, 1, -33.5397, -12.1739, -111.973)
+interact_name = "Black Turban Snail"
+description = "These dark, round snails slowly graze on algae with a rough tongue and wear a thick shell to keep safe from hungry predators."
+sprite_preview = ExtResource("9_vfvxx")
+
+[node name="Visual" parent="InteractableObjects/Snail3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11311, 0.147983, 0)
+texture = ExtResource("9_vfvxx")
+
+[node name="Snail4" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 9.02573e-05, 7.21785e-05, -9.02778e-05, 1, 0.000384428, -7.21529e-05, -0.000384433, 1, -43.6424, -13.4173, -112.05)
+interact_name = "Black Turban Snail"
+description = "These dark, round snails slowly graze on algae with a rough tongue and wear a thick shell to keep safe from hungry predators."
+sprite_preview = ExtResource("9_vfvxx")
+
+[node name="Visual" parent="InteractableObjects/Snail4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11311, 0.147983, 0)
+texture = ExtResource("9_vfvxx")
+
 [node name="seal" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.6447, -11.3128, 37.096)
 interact_name = "Harbor Seal"
+description = "With big eyes and whiskers, these spotted seals love lounging on sunny rocks and diving through shallow waters to find fish to eat."
 sprite_preview = ExtResource("8_cv5ke")
 
-[node name="Visual" parent="InteractableObjects/seal" index="1"]
+[node name="PreciseCollider2" type="CollisionShape3D" parent="InteractableObjects/seal"]
+shape = SubResource("SphereShape3D_pj2rk")
+
+[node name="Visual" parent="InteractableObjects/seal" index="2"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.633702, 0)
+texture = ExtResource("8_cv5ke")
+
+[node name="seal2" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.5367, -11.3128, 34.9688)
+interact_name = "Harbor Seal"
+description = "With big eyes and whiskers, these spotted seals love lounging on sunny rocks and diving through shallow waters to find fish to eat."
+sprite_preview = ExtResource("8_cv5ke")
+
+[node name="PreciseCollider2" type="CollisionShape3D" parent="InteractableObjects/seal2"]
+shape = SubResource("SphereShape3D_pj2rk")
+
+[node name="Visual" parent="InteractableObjects/seal2" index="2"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.633702, 0)
+texture = ExtResource("8_cv5ke")
+
+[node name="seal3" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.9144, -11.3128, 33.03)
+interact_name = "Harbor Seal"
+description = "With big eyes and whiskers, these spotted seals love lounging on sunny rocks and diving through shallow waters to find fish to eat."
+sprite_preview = ExtResource("8_cv5ke")
+
+[node name="PreciseCollider2" type="CollisionShape3D" parent="InteractableObjects/seal3"]
+shape = SubResource("SphereShape3D_pj2rk")
+
+[node name="Visual" parent="InteractableObjects/seal3" index="2"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.633702, 0)
+texture = ExtResource("8_cv5ke")
+
+[node name="seal4" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.9144, -11.3128, 41.5553)
+interact_name = "Harbor Seal"
+description = "With big eyes and whiskers, these spotted seals love lounging on sunny rocks and diving through shallow waters to find fish to eat."
+sprite_preview = ExtResource("8_cv5ke")
+
+[node name="PreciseCollider2" type="CollisionShape3D" parent="InteractableObjects/seal4"]
+shape = SubResource("SphereShape3D_pj2rk")
+
+[node name="Visual" parent="InteractableObjects/seal4" index="2"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.633702, 0)
+texture = ExtResource("8_cv5ke")
+
+[node name="seal5" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.0948, -11.3128, 41.5553)
+interact_name = "Harbor Seal"
+description = "With big eyes and whiskers, these spotted seals love lounging on sunny rocks and diving through shallow waters to find fish to eat."
+sprite_preview = ExtResource("8_cv5ke")
+
+[node name="PreciseCollider2" type="CollisionShape3D" parent="InteractableObjects/seal5"]
+shape = SubResource("SphereShape3D_pj2rk")
+
+[node name="Visual" parent="InteractableObjects/seal5" index="2"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.633702, 0)
+texture = ExtResource("8_cv5ke")
+
+[node name="seal6" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.8491, -11.3128, 39.0267)
+interact_name = "Harbor Seal"
+description = "With big eyes and whiskers, these spotted seals love lounging on sunny rocks and diving through shallow waters to find fish to eat."
+sprite_preview = ExtResource("8_cv5ke")
+
+[node name="PreciseCollider2" type="CollisionShape3D" parent="InteractableObjects/seal6"]
+shape = SubResource("SphereShape3D_pj2rk")
+
+[node name="Visual" parent="InteractableObjects/seal6" index="2"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.633702, 0)
+texture = ExtResource("8_cv5ke")
+
+[node name="seal7" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.8101, -11.3128, 44.2005)
+interact_name = "Harbor Seal"
+description = "With big eyes and whiskers, these spotted seals love lounging on sunny rocks and diving through shallow waters to find fish to eat."
+sprite_preview = ExtResource("8_cv5ke")
+
+[node name="PreciseCollider2" type="CollisionShape3D" parent="InteractableObjects/seal7"]
+shape = SubResource("SphereShape3D_pj2rk")
+
+[node name="Visual" parent="InteractableObjects/seal7" index="2"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.633702, 0)
+texture = ExtResource("8_cv5ke")
+
+[node name="seal8" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.716, -11.3128, 41.3882)
+interact_name = "Harbor Seal"
+description = "With big eyes and whiskers, these spotted seals love lounging on sunny rocks and diving through shallow waters to find fish to eat."
+sprite_preview = ExtResource("8_cv5ke")
+
+[node name="PreciseCollider2" type="CollisionShape3D" parent="InteractableObjects/seal8"]
+shape = SubResource("SphereShape3D_pj2rk")
+
+[node name="Visual" parent="InteractableObjects/seal8" index="2"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.633702, 0)
+texture = ExtResource("8_cv5ke")
+
+[node name="seal9" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.488, -11.3128, 43.1406)
+interact_name = "Harbor Seal"
+description = "With big eyes and whiskers, these spotted seals love lounging on sunny rocks and diving through shallow waters to find fish to eat."
+sprite_preview = ExtResource("8_cv5ke")
+
+[node name="PreciseCollider2" type="CollisionShape3D" parent="InteractableObjects/seal9"]
+shape = SubResource("SphereShape3D_pj2rk")
+
+[node name="Visual" parent="InteractableObjects/seal9" index="2"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.633702, 0)
 texture = ExtResource("8_cv5ke")
 
 [node name="SeaOtter" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.124, -14.5167, -98.067)
 interact_name = "Sea Otter"
-description = "This is a sea otter!!! "
+description = "These fluffy swimmers use rocks like tools to crack open shellfish and urchins. They float on their backs like they are relaxing at the spa!"
 sprite_preview = ExtResource("12_qxng8")
 
 [node name="Visual" parent="InteractableObjects/SeaOtter" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.265381, 0.145276, 0)
 texture = ExtResource("12_qxng8")
 
+[node name="SeaOtter2" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.603, -14.4679, -80.9543)
+interact_name = "Sea Otter"
+description = "These fluffy swimmers use rocks like tools to crack open shellfish and urchins. They float on their backs like they are relaxing at the spa!"
+sprite_preview = ExtResource("12_qxng8")
+
+[node name="Visual" parent="InteractableObjects/SeaOtter2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.265381, 0.145276, 0)
+texture = ExtResource("12_qxng8")
+
 [node name="SeaCucumber" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.49665, -0.00898278, -50.2062)
 interact_name = "Sea Cucumber"
+description = "They might look squishy and weird, but sea cucumbers are important cleaners, vacuuming up sand and bits of leftover food from the seafloor."
 sprite_preview = ExtResource("8_ke361")
 
 [node name="Visual" parent="InteractableObjects/SeaCucumber" index="1"]
@@ -291,7 +591,7 @@ texture = ExtResource("8_ke361")
 [node name="Shrimp" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.80285, -0.00898278, -48.9313)
 interact_name = "Shrimp"
-description = "is shrimp"
+description = "Is shrimp. Tiny but mighty, these shrimp zip around and use their little pincers to grab food. Some even help clean other animals!"
 sprite_preview = ExtResource("14_muo7v")
 
 [node name="Visual" parent="InteractableObjects/Shrimp" index="1"]
@@ -301,7 +601,7 @@ texture = ExtResource("14_muo7v")
 [node name="Star Tunicate" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.31893, -0.00898278, -47.8423)
 interact_name = "Star Tunicate"
-description = "is shrimp"
+description = "It might look like a strange star-shaped blob but it is a colony of smaller creatures. These guys are the closest invertebrate relative to humans! "
 sprite_preview = ExtResource("15_6j1fx")
 
 [node name="Visual" parent="InteractableObjects/Star Tunicate" index="1"]
@@ -311,7 +611,7 @@ texture = ExtResource("15_6j1fx")
 [node name="decorator crab" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.45158, -0.00898278, -47.4644)
 interact_name = "Decorator Crab"
-description = "is shrimp"
+description = "This clever crab sticks bits of algae and sponge to its shell like a walking art project to stay camouflaged from predators."
 sprite_preview = ExtResource("17_j5dh0")
 
 [node name="Visual" parent="InteractableObjects/decorator crab" index="1"]
@@ -321,7 +621,7 @@ texture = ExtResource("17_j5dh0")
 [node name="sponge" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1993, -0.00898278, -48.7313)
 interact_name = "Orange Puff Ball Sponge"
-description = "is shrimp"
+description = "This soft sponge really does look like a fuzzy orange ball and helps clean the water by filtering out tiny bits floating by."
 sprite_preview = ExtResource("16_ify7x")
 
 [node name="Visual" parent="InteractableObjects/sponge" index="1"]
@@ -331,53 +631,65 @@ texture = ExtResource("16_ify7x")
 [node name="Nudibranch" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1377, -14.2494, -114.847)
 interact_name = "Nidibranch"
-description = "f"
+description = "These colorful sea slugs look like tiny underwater rainbows and come in amazing shapes! They are like real life Pokemon!"
 sprite_preview = ExtResource("18_t8en0")
 
 [node name="Visual" parent="InteractableObjects/Nudibranch" index="1"]
 texture = ExtResource("18_t8en0")
 
 [node name="Urchin" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.83684, 0.64, -4.96588)
-interact_name = "FISH"
-description = "THIS IS A TEST FISH AHHHHHHH"
-sprite_preview = ExtResource("4_vuhcl")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.296, 0.0696321, -9.38577)
+interact_name = "Purple Urchin"
+description = "Covered in sharp spines, purple urchins munch on kelp and hide in rocky cracks. Their teeth can even crush rocks!"
+sprite_preview = ExtResource("22_eyj1t")
 
 [node name="Visual" parent="InteractableObjects/Urchin" index="1"]
+texture = ExtResource("22_eyj1t")
+
+[node name="Bat Star" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0614, 0.118532, -9.99227)
+interact_name = "Bat Starfish"
+description = "This chunky sea star has webbing between its arms like a bat’s wings and comes in fun colors like orange, pink, and purple. They do not have blood!"
+sprite_preview = ExtResource("5_ko41k")
+
+[node name="Visual" parent="InteractableObjects/Bat Star" index="1"]
 texture = ExtResource("5_ko41k")
 
-[node name="Tuna" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8785, 0.64, 2.24699)
-interact_name = "Tuna"
-description = "This is a Tuna"
-sprite_preview = ExtResource("4_vuhcl")
+[node name="Chiton Shell" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.2953, -0.0188929, -10.8394)
+interact_name = "Chiton Shell"
+description = "Chitons have armor made of overlapping plates and stick to rocks so well they’re almost impossible to pry off—real-life limpet tanks!"
+sprite_preview = ExtResource("23_vsrl3")
 
-[node name="Visual" parent="InteractableObjects/Tuna" index="1"]
-texture = ExtResource("4_vuhcl")
+[node name="Visual" parent="InteractableObjects/Chiton Shell" index="1"]
+texture = ExtResource("23_vsrl3")
 
-[node name="RaycastCollider2" type="CollisionShape3D" parent="InteractableObjects/Tuna/Proximity" index="1"]
-shape = SubResource("SphereShape3D_5hfko")
+[node name="Coral" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8437, -0.0188929, -10.3567)
+interact_name = "Coral"
+description = "Corals might look like colorful rocks, but they’re actually tiny animals living together in big colonies and they build reefs that become whole underwater cities for fish and other creatures!"
+sprite_preview = ExtResource("24_f51lb")
 
-[node name="Salmon" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3669, 0.64, 10.6439)
-interact_name = "Salmon"
-description = "This is a salmon"
-sprite_preview = ExtResource("5_m88n2")
+[node name="Visual" parent="InteractableObjects/Coral" index="1"]
+texture = ExtResource("24_f51lb")
 
-[node name="Visual" parent="InteractableObjects/Salmon" index="1"]
-texture = ExtResource("5_m88n2")
+[node name="Abalone Shell" parent="InteractableObjects" instance=ExtResource("3_qohg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.2764, -0.0634983, -10.3567)
+interact_name = "Abalone Shell"
+description = "These sea snails have beautifully rainbow-colored shells and clamp down super hard on rocks to stay safe from otters and waves."
+sprite_preview = ExtResource("25_ed5vi")
 
-[node name="RaycastCollider2" type="CollisionShape3D" parent="InteractableObjects/Salmon/Proximity" index="1"]
-shape = SubResource("SphereShape3D_5hfko")
+[node name="Visual" parent="InteractableObjects/Abalone Shell" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118893, -0.0520221, 0.266711)
+texture = ExtResource("25_ed5vi")
 
 [node name="NPCs" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.995166, 0)
 
 [node name="girl" parent="NPCs" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.5356, 0.64, 35.6376)
-interact_name = "Marine Biologist"
-description = "THIS IS A TEST FISH AHHHHHHH"
-sprite_preview = ExtResource("4_vuhcl")
+interact_name = "Volunteer"
+npc_name = "girl"
 
 [node name="Visual" parent="NPCs/girl" index="1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -385,27 +697,27 @@ texture = ExtResource("16_mu1ig")
 
 [node name="Jenny" parent="NPCs" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.1356, 0.64, -6.0709)
-interact_name = "Marine Biologist"
-description = "THIS IS A TEST FISH AHHHHHHH"
-sprite_preview = ExtResource("4_vuhcl")
+interact_name = "Biologist"
+npc_name = "jenny"
 
 [node name="Visual" parent="NPCs/Jenny" index="1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 texture = ExtResource("10_xanqo")
 
-[node name="Jenny2" parent="NPCs" instance=ExtResource("3_qohg2")]
+[node name="fishGuy" parent="NPCs" instance=ExtResource("3_qohg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08098, 0.64, -53.9919)
-interact_name = "Marine Biologist"
-npc_name = "FishGuy"
+interact_name = "Biologist"
+npc_name = "fishGuy"
 
-[node name="Visual" parent="NPCs/Jenny2" index="1"]
+[node name="Visual" parent="NPCs/fishGuy" index="1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.176177, -0.371861, 0)
 texture = ExtResource("10_e62ca")
 
 [node name="SugoiScientist" parent="NPCs" instance=ExtResource("3_qohg2")]
 process_priority = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4434, 0.64, -10.3709)
-interact_name = "Marine Biologist"
+interact_name = "Biologist"
+npc_name = "researcher"
 
 [node name="Visual" parent="NPCs/SugoiScientist" index="1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -414,9 +726,8 @@ texture = ExtResource("10_34wsb")
 [node name="SuferDude" parent="NPCs" instance=ExtResource("3_qohg2")]
 process_priority = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.5566, -10.66, -70.0124)
-interact_name = "Marine Biologist"
-description = "THIS IS A TEST FISH AHHHHHHH"
-sprite_preview = ExtResource("4_vuhcl")
+interact_name = "Biologist"
+npc_name = "dude"
 
 [node name="Visual" parent="NPCs/SuferDude" index="1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -1350,13 +1661,41 @@ transform = Transform3D(3.015, 0, 0, 0, 2.99, 0, 0, 0, 3.3725, 161.73, -10.58, 2
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("41_ke361")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 170, -21, -206)
 
-[editable path="InteractableObjects/Test Object"]
 [editable path="InteractableObjects/Scallop"]
-[editable path="InteractableObjects/Scallop2"]
+[editable path="InteractableObjects/Mussel"]
+[editable path="InteractableObjects/Mussel2"]
+[editable path="InteractableObjects/Mussel3"]
+[editable path="InteractableObjects/Mussel4"]
+[editable path="InteractableObjects/Brown Algae"]
+[editable path="InteractableObjects/Brown Algae2"]
+[editable path="InteractableObjects/Brown Algae3"]
+[editable path="InteractableObjects/Brown Algae4"]
+[editable path="InteractableObjects/Green Algae"]
+[editable path="InteractableObjects/Green Algae2"]
+[editable path="InteractableObjects/Green Algae3"]
+[editable path="InteractableObjects/Red Algae"]
+[editable path="InteractableObjects/Red Algae2"]
+[editable path="InteractableObjects/Red Algae3"]
 [editable path="InteractableObjects/Anemone"]
+[editable path="InteractableObjects/Anemone2"]
+[editable path="InteractableObjects/Anemone3"]
+[editable path="InteractableObjects/Anemone4"]
+[editable path="InteractableObjects/Anemone5"]
 [editable path="InteractableObjects/Snail"]
+[editable path="InteractableObjects/Snail2"]
+[editable path="InteractableObjects/Snail3"]
+[editable path="InteractableObjects/Snail4"]
 [editable path="InteractableObjects/seal"]
+[editable path="InteractableObjects/seal2"]
+[editable path="InteractableObjects/seal3"]
+[editable path="InteractableObjects/seal4"]
+[editable path="InteractableObjects/seal5"]
+[editable path="InteractableObjects/seal6"]
+[editable path="InteractableObjects/seal7"]
+[editable path="InteractableObjects/seal8"]
+[editable path="InteractableObjects/seal9"]
 [editable path="InteractableObjects/SeaOtter"]
+[editable path="InteractableObjects/SeaOtter2"]
 [editable path="InteractableObjects/SeaCucumber"]
 [editable path="InteractableObjects/Shrimp"]
 [editable path="InteractableObjects/Star Tunicate"]
@@ -1364,11 +1703,13 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 170, -21, -206)
 [editable path="InteractableObjects/sponge"]
 [editable path="InteractableObjects/Nudibranch"]
 [editable path="InteractableObjects/Urchin"]
-[editable path="InteractableObjects/Tuna"]
-[editable path="InteractableObjects/Salmon"]
+[editable path="InteractableObjects/Bat Star"]
+[editable path="InteractableObjects/Chiton Shell"]
+[editable path="InteractableObjects/Coral"]
+[editable path="InteractableObjects/Abalone Shell"]
 [editable path="NPCs/girl"]
 [editable path="NPCs/Jenny"]
-[editable path="NPCs/Jenny2"]
+[editable path="NPCs/fishGuy"]
 [editable path="NPCs/SugoiScientist"]
 [editable path="NPCs/SuferDude"]
 [editable path="HopkinsLandscape"]

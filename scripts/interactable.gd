@@ -11,16 +11,21 @@ extends StaticBody3D
 @export var npc_name: String = ""  # Optional — leave blank for non-NPCs
 
 var npc_dialogue_pools = {
-	"crab_guy": [
-		"res://dialogue/crab_guy_1.dialogue",
-		"res://dialogue/crab_guy_2.dialogue",
-		"res://dialogue/crab_guy_3.dialogue",
+	"dude": [
+		"res://timelines/dude_1.dtl"
 	],
-	"marine_biologist": [
-		"res://timelines/bio_1dialogue.dtl"
+	"girl": [
+		"res://timelines/girl_1.dtl"
 	],
-	"seal_child": [
-		"res://dialogue/seal_child.dialogue"
+	"jenny": [
+		"res://timelines/jenny_1.dtl"
+	]
+	,
+	"fishGuy": [
+		"res://timelines/fishGuy_1.dtl"
+	],
+	"researcher": [
+		"res://timelines/researcher_1.dtl"
 	]
 }
 
