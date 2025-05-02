@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://btsdlw0ny288q"]
+
+[ext_resource type="PackedScene" uid="uid://doakv5rdtcwic" path="res://assets/Models/table.glb" id="1_keed7"]
+
+[node name="table" instance=ExtResource("1_keed7")]

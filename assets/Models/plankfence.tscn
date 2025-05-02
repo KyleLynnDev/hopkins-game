@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmwky4h8oc3yf"]
+
+[ext_resource type="PackedScene" uid="uid://ctdyr1ad350x3" path="res://assets/Models/plankfence.glb" id="1_vhoxs"]
+
+[node name="plankfence" instance=ExtResource("1_vhoxs")]

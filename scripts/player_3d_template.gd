@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export_group("Movement")
 ## Character maximum run speed on the ground in meters per second.
-@export var move_speed := 8.0
+@export var move_speed := 12.0
 ## Ground movement acceleration in meters per second squared.
 @export var acceleration := 20.0
 ## When the player is on the ground and presses the jump button, the vertical
@@ -73,6 +73,9 @@ var _nearby_target: Node = null
 @onready var _raycast = %FirstPersonRayCast3D  # or dynamic camera
 @onready var _interact_prompt = Ui.interaction 
 
+var waiting_to_capture_mouse: bool = false 
+var ui_was_open_last_frame = false
+
 
 func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -115,8 +118,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		if Ui.is_ui_open():
 			Ui.close_all_panels()
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		#else:
+		#	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
 	elif event.is_action_pressed("left_click"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -126,7 +130,11 @@ func _input(event: InputEvent) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	
-	
+	# If waiting to capture, listen for click
+	if waiting_to_capture_mouse and event is InputEventMouseButton and event.pressed:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		waiting_to_capture_mouse = false
+		return  # Don't process more input this frame
 	
 	var player_is_using_mouse := (
 		event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
@@ -160,6 +168,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	
 	handle_camera_input(delta)
+	
+		# --- UI auto capture logic ---
+	if ui_was_open_last_frame and not Ui.is_ui_open() and first_person_enabled:
+		waiting_to_capture_mouse = true
+		print("UI closed, waiting for mouse recapture!")
+
+	ui_was_open_last_frame = Ui.is_ui_open()
 	
 	if Ui.is_ui_open():
 		return  # Skip movement/interact
@@ -235,7 +250,14 @@ func update_camera_mode():
 	# Hide player mesh in first-person
 	_skin.visible = !first_person_enabled
 
+	#if first_person_enabled:
+		##Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	#else:
+		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 	if not first_person_enabled:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 		
 		_camera_pivot.rotation.y = rotation.y
 		_camera_pivot.rotation.x = _camera_first_person.rotation.x
@@ -253,6 +275,8 @@ func update_camera_mode():
 		
 
 	if first_person_enabled:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+		
 		
 	# Get third-person look angles
 		var yaw = _camera_pivot.rotation.y
@@ -261,12 +285,6 @@ func update_camera_mode():
 	# Apply them to body and first-person camera
 		rotation.y = yaw  # rotate the body
 		_camera_first_person.rotation.x = pitch
-		# 🛠 Fix input and mouse capture immediately
-	if first_person_enabled:
-		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	# 🛠 Reset input direction so camera doesn't "stutter" after switching
 	_first_person_input_direction = Vector2.ZERO

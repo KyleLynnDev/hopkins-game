@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://sfs6ajhaj4p6"]
+
+[ext_resource type="PackedScene" uid="uid://bhlqj5bjmobk8" path="res://assets/Models/aquarium.glb" id="1_78p48"]
+
+[node name="aquarium" instance=ExtResource("1_78p48")]

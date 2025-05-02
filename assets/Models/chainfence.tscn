@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://eayysloaf3ok"]
+
+[ext_resource type="PackedScene" uid="uid://55742t6iavwn" path="res://assets/Models/chainfence.glb" id="1_4p0ur"]
+
+[node name="chainfence" instance=ExtResource("1_4p0ur")]

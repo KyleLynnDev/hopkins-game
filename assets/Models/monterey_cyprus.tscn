@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci6yc63e5b7gq"]
+
+[ext_resource type="PackedScene" uid="uid://ddf7u5kbpub8y" path="res://assets/Models/MontereyCyprus.glb" id="1_0qbs2"]
+
+[node name="MontereyCyprus" instance=ExtResource("1_0qbs2")]

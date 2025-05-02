@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs5p76q5amgks"]
+
+[ext_resource type="PackedScene" uid="uid://ccj3mjq6od7pj" path="res://assets/Models/solotable.glb" id="1_tvmdf"]
+
+[node name="solotable" instance=ExtResource("1_tvmdf")]

@@ -258,7 +258,7 @@ render_priority = 5
 sprite_frames = SubResource("SpriteFrames_v2337")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.987767
+frame_progress = 0.830507
 
 [node name="sophia" parent="." instance=ExtResource("1_e4pev")]
 

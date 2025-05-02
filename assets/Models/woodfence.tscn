@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c12x6xrbcjsjk"]
+
+[ext_resource type="PackedScene" uid="uid://scqbitlr1nkf" path="res://assets/Models/woodfence.glb" id="1_0568y"]
+
+[node name="woodfence" instance=ExtResource("1_0568y")]
